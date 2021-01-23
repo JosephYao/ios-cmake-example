@@ -2,15 +2,13 @@
 #define CPP_OTP_LOGGER_H
 
 #include <string>
-#include <fruit/fruit.h>
 
 using namespace std;
 
 class Logger {
 
 public:
-    INJECT(Logger()) = default;
-    virtual void log(string message);
+    void log(string message);
 
 };
 

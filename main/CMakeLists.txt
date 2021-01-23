@@ -1,8 +1,19 @@
-set(Main_SRCS main.cpp AuthenticationService.cpp AuthenticationService.h ProfileDao.cpp ProfileDao.h RsaTokenDao.cpp RsaTokenDao.h Context.cpp Context.h Logger.h Logger.cpp)
+set(CMAKE_CXX_STANDARD 11)
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fobjc-abi-version=2 -fobjc-arc -std=gnu++11 -stdlib=libc++ -isysroot ${CMAKE_OSX_SYSROOT}")
+#set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fobjc-abi-version=2 -fobjc-arc -isysroot ${CMAKE_OSX_SYSROOT}")
 
-#set(Logger_SRCS Logger.cpp)
+set(Main_SRCS AuthenticationService.cpp AuthenticationService.h ProfileDao.cpp ProfileDao.h RsaTokenDao.cpp RsaTokenDao.h Context.cpp Context.h Logger.h Logger.cpp)
 
-add_library(core ${Main_SRCS})
-#add_library(logger ${Logger_SRCS})
-add_executable(${CMAKE_PROJECT_NAME} main.cpp)
-target_link_libraries(${CMAKE_PROJECT_NAME} core fruit)
+add_library(core STATIC ${Main_SRCS})
+
+#set_target_properties(core PROPERTIES
+#        FRAMEWORK TRUE
+##        MACOSX_FRAMEWORK_IDENTIFIER com.cmake.dynamicFramework
+##        MACOSX_FRAMEWORK_INFO_PLIST Info.plist
+#        # "current version" in semantic format in Mach-O binary file
+##        VERSION 16.4.0
+#        # "compatibility version" in semantic format in Mach-O binary file
+##        SOVERSION 1.0.0
+#        PUBLIC_HEADER AuthWrapper.h
+##        XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "iPhone Developer"
+#        )

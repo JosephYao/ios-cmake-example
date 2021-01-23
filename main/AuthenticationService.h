@@ -5,7 +5,6 @@
 #include "ProfileDao.h"
 #include "RsaTokenDao.h"
 #include "Logger.h"
-#include <fruit/fruit.h>
 
 using namespace std;
 
@@ -17,9 +16,9 @@ public:
 class AuthenticationService {
 
 public:
-    INJECT(AuthenticationService(ProfileDao& profileDao, RsaTokenDao& rsaTokenDao, Logger& logger));
+    AuthenticationService(ProfileDao& profileDao, RsaTokenDao& rsaTokenDao, Logger& logger);
 
-    virtual bool isValid(string userName, string password);
+    bool isValid(string userName, string password);
 
 private:
     ProfileDao& profileDao;
